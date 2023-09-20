@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchTeamMembers } from './utils/api';
 import TeamList from './components/TeamList';
 import RegistrationForm from './components/RegistrationForm';
 import './App.css';
 
 function App() {
-  const [members, setMembers] = useState([]);
+  const [members, setMembers] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchTeamMembers();
-      setMembers(data.team);
+      setMembers(data);
     };
 
     fetchData();
   }, []);
 
-  const handleRegister = (name: any) => {
-    // @ts-ignore
-    setMembers((prevMembers: any) => [...prevMembers, name]);
+  const handleRegister = (name: string) => {
+    setMembers((prevMembers: string[]) => [...prevMembers, name]);
   };
 
   return (
