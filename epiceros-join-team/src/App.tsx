@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchTeamMembers } from './utils/api';
 import TeamList from './components/TeamList';
 import RegistrationForm from './components/RegistrationForm';
-import './App.css';
+import './styling/App.css';
 
 function App() {
   const [members, setMembers] = useState<string[]>([]);
